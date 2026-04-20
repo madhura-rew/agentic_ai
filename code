@@ -1,0 +1,69 @@
+// Base class
+class Person {
+    String name;
+    int age;
+
+    // Constructor
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method to display person details
+    void displayPerson() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+// Derived class
+class Student extends Person {
+    String prn;
+    double marks;
+
+    // Constructor
+    Student(String name, int age, String prn, double marks) {
+        super(name, age); // calling base class constructor
+        this.prn = prn;
+        this.marks = marks;
+    }
+
+    // Method to display student details
+    void displayStudent() {
+        displayPerson(); // inherited method
+        System.out.println("PRN: " + prn);
+        System.out.println("Marks: " + marks);
+    }
+}
+
+// Further derived class
+class GraduateStudent extends Student {
+    String specialization;
+
+    // Constructor
+    GraduateStudent(String name, int age, String prn, double marks, String specialization) {
+        super(name, age, prn, marks);
+        this.specialization = specialization;
+    }
+
+    // Method to display graduate student details
+    void displayGraduateStudent() {
+        displayStudent(); // inherited method
+        System.out.println("Specialization: " + specialization);
+    }
+}
+
+// Main class
+public class StudentManagementSystem {
+    public static void main(String[] args) {
+        
+        // Creating object of GraduateStudent
+        GraduateStudent gs = new GraduateStudent(
+            "Madhura", 22, "24070521037", 85.5, "Computer Science"
+        );
+
+        // Display complete information
+        System.out.println("Student Details:");
+        gs.displayGraduateStudent();
+    }
+}
